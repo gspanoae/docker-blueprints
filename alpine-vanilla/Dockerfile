@@ -5,8 +5,8 @@ FROM alpine:3.5
 # ###################################
 # Install other apk packages
 # eg. RUN apk add bash
-RUN apk update
-RUN apk add bash
+RUN apk update && \
+    apk add bash
 
 # Configure image argument(s)
 # eg. ARG APPLICATION_NAME
@@ -21,6 +21,7 @@ RUN mkdir -p workspace/service
 # Add service files
 # eg. ADD . /workspace/service
 ADD . /workspace/service
+WORKDIR /workspace/service
 
 # ###################################
 # Install 3rd party dependencies
@@ -40,6 +41,5 @@ ADD . /workspace/service
 # EXPOSE 9999
 
 # Define image entry-points
-WORKDIR /workspace/service
 RUN ["chmod", "+x", "./docker-entrypoint.sh"]
 ENTRYPOINT [ "/bin/bash", "-l", "./docker-entrypoint.sh" ]
