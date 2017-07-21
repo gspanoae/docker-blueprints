@@ -8,3 +8,6 @@ export HTTP_PROXY="http://${proxyHost}:${proxyPort}"
 export HTTPS_PROXY="http://${proxyHost}:${proxyPort}"
 EOF
 fi
+
+sleep 30
+exit 1

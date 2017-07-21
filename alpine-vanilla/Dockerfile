@@ -42,4 +42,4 @@ ADD . /workspace/service
 # Define image entry-points
 WORKDIR /workspace/service
 RUN ["chmod", "+x", "./docker-entrypoint.sh"]
-ENTRYPOINT [ "/bin/bash", "-l", "docker-entrypoint.sh" ]
+ENTRYPOINT [ "/bin/bash", "-l", "./docker-entrypoint.sh" ]
